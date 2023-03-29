@@ -1,0 +1,40 @@
+package com.example.registerandlogin
+
+import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Toast
+import androidx.navigation.fragment.findNavController
+import com.example.registerandlogin.databinding.FragmentProfileActivityBinding
+
+
+class ProfileActivity : Fragment() {
+
+    lateinit var binding : FragmentProfileActivityBinding
+
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        binding = FragmentProfileActivityBinding.inflate(layoutInflater,container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val getusername = arguments?.getString("username")
+        binding.profileNameTextView.setText(getusername)
+
+
+        binding.logoutButton.setOnClickListener{
+            findNavController().navigate(R.id.action_profileActivity_to_loginActivity)
+        }
+    }
+
+
+}

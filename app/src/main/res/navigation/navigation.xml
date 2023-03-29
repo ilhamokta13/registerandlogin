@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation"
+    app:startDestination="@id/loginActivity">
+
+    <fragment
+        android:id="@+id/loginActivity"
+        android:name="com.example.registerandlogin.LoginActivity"
+        android:label="LoginActivity" >
+        <action
+            android:id="@+id/action_loginActivity_to_registerActivity"
+            app:destination="@id/registerActivity" />
+        <action
+            android:id="@+id/action_loginActivity_to_homeActivity"
+            app:destination="@id/homeActivity" />
+        <argument
+            android:name="username"
+            app:argType="string"
+            android:defaultValue="username" />
+        <argument
+            android:name="pass"
+            app:argType="string"
+            android:defaultValue="pass" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerActivity"
+        android:name="com.example.registerandlogin.RegisterActivity"
+        android:label="RegisterActivity" >
+        <action
+            android:id="@+id/action_registerActivity_to_loginActivity2"
+            app:destination="@id/loginActivity" />
+        <action
+            android:id="@+id/action_registerActivity_to_loginActivity4"
+            app:destination="@id/loginActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeActivity"
+        android:name="com.example.registerandlogin.HomeActivity"
+        android:label="HomeActivity" >
+        <action
+            android:id="@+id/action_homeActivity_to_profileActivity"
+            app:destination="@id/profileActivity" />
+        <argument
+            android:name="username"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileActivity"
+        android:name="com.example.registerandlogin.ProfileActivity"
+        android:label="ProfileActivity" >
+        <action
+            android:id="@+id/action_profileActivity_to_loginActivity"
+            app:destination="@id/loginActivity" />
+        <argument
+            android:name="username"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+</navigation>
